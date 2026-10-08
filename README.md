@@ -22,7 +22,7 @@ Open a terminal and install the system dependency and Python tooling:
 
 ```bash
 sudo apt update
-sudo apt install -y nmap python3 python3-venv python3-pip curl unzip
+sudo apt install -y nmap python3 python3-venv python3-pip python3-tk curl unzip
 ```
 
 Download the public source archive (no GitHub account or Git installation needed), then create a virtual environment and install FRECON:
@@ -62,6 +62,16 @@ python -m frecon.cli --authorized https://example.org
 ```
 
 View options with `frecon --help`.
+
+## Desktop GUI
+
+On a desktop session with Tkinter installed, launch the graphical recon console with:
+
+```bash
+frecon-gui
+```
+
+Enter one target, check the permission box, and select **RUN RECON**. The scan runs in the background; use **SAVE JSON** to export its report. The GUI uses the same bounded scan and findings as the CLI. On Kali, `python3-tk` is included in the installation command above. A graphical desktop session is required.
 
 ## Development and tests
 

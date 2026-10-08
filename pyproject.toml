@@ -12,6 +12,7 @@ dependencies = []
 
 [project.scripts]
 frecon = "frecon.cli:main"
+frecon-gui = "frecon.gui:main"
 
 [tool.setuptools.packages.find]
 include = ["frecon*"]

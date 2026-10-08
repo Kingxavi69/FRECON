@@ -1,6 +1,7 @@
 import unittest
 
 from frecon.scanner import Target, build_findings, parse_target
+from frecon.gui import format_report
 
 
 class ParseTargetTests(unittest.TestCase):
@@ -59,6 +60,21 @@ class ParseTargetTests(unittest.TestCase):
             },
         )
         self.assertEqual(findings[0]["title"], "TLS certificate validation failed")
+
+
+class GuiReportTests(unittest.TestCase):
+    def test_report_shows_open_ports_and_findings(self):
+        report = {
+            "target": {"input": "example.com", "resolved_address": "192.0.2.1", "address_family": "IPv4"},
+            "generated_at": "2026-10-08T00:00:00+00:00",
+            "ports": [{"port": 443, "service": "https", "product": "", "version": ""}],
+            "findings": [{"severity": "low", "title": "Test indicator", "evidence": "Test evidence", "recommendation": "Test action"}],
+            "web": {"http_error": None, "tls": None},
+        }
+        rendered = format_report(report)
+        self.assertIn("443    /tcp https", rendered)
+        self.assertIn("[LOW] Test indicator", rendered)
+        self.assertIn("Test action", rendered)
 
 
 if __name__ == "__main__":
