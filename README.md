@@ -4,6 +4,8 @@ FRECON is a small command-line reconnaissance tool for a **single IP address, ho
 
 FRECON reports **potential exposure and configuration risks**, not verified vulnerabilities. It does not exploit services, run vulnerability scripts, crawl pages, or check UDP ports. Use it only on systems you own or have explicit permission to assess.
 
+FRECON does not require a GitHub login, username, password, paid API key, or subscription. The `--authorized` option is only a local confirmation that you have permission to scan the target; it is not an account login.
+
 ## What it checks
 
 - Nmap TCP connect scan (`-sT`) of up to 1,000 common ports, with lightweight service detection.
@@ -26,7 +28,7 @@ sudo apt install -y nmap python3 python3-venv python3-pip git
 Clone the GitHub repository, enter it, create a virtual environment, and install FRECON:
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/FRECON.git
+git clone https://github.com/Kingxavi69/FRECON.git
 cd FRECON
 python3 -m venv .venv
 source .venv/bin/activate
@@ -34,7 +36,7 @@ python -m pip install --upgrade pip
 python -m pip install .
 ```
 
-Replace `YOUR-USERNAME` with the GitHub account or organization that hosts the repository. Nmap's TCP connect scan does not require root privileges.
+The repository is public, so cloning over HTTPS does not require GitHub credentials. Nmap's TCP connect scan does not require root privileges.
 
 ## Usage
 
