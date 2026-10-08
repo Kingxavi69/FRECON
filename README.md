@@ -22,21 +22,22 @@ Open a terminal and install the system dependency and Python tooling:
 
 ```bash
 sudo apt update
-sudo apt install -y nmap python3 python3-venv python3-pip git
+sudo apt install -y nmap python3 python3-venv python3-pip curl unzip
 ```
 
-Clone the GitHub repository, enter it, create a virtual environment, and install FRECON:
+Download the public source archive (no GitHub account or Git installation needed), then create a virtual environment and install FRECON:
 
 ```bash
-git clone https://github.com/Kingxavi69/FRECON.git
-cd FRECON
+curl -L --fail https://github.com/Kingxavi69/FRECON/archive/refs/heads/main.zip -o FRECON.zip
+unzip FRECON.zip
+cd FRECON-main
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install .
 ```
 
-The repository is public, so cloning over HTTPS does not require GitHub credentials. Nmap's TCP connect scan does not require root privileges.
+The source archive is public and does not require GitHub credentials. Nmap's TCP connect scan does not require root privileges.
 
 ## Usage
 
